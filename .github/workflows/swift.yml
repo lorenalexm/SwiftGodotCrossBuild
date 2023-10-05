@@ -2,11 +2,25 @@ name: Swift Builds
 on: [push]
 
 jobs:
-  build:
+  linux:
     name: Linux
     runs-on: ubuntu-latest
     steps:
       - uses: swift-actions/setup-swift@v1
+      - uses: actions/checkout@v4
+      - name: Get Swift version
+        run: swift --version
+      - name: Run Swift build
+        run: swift build
+
+  windows:
+    name: Windows
+    runs-on: windows-latest
+    steps:
+      - uses: compnerd/gha-setup-swift@main
+        with:
+          branch: swift-5.9-release
+          tag: 5.9-RELEASE
       - uses: actions/checkout@v4
       - name: Get Swift version
         run: swift --version
