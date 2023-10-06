@@ -8,7 +8,11 @@
 import SwiftGodot
 import SwiftGodotMacros
 
-//#initSwiftExtension(cdecl: "swift_entry_point", types: [SpinningCube.self])
+#if os(macOS)
+
+#initSwiftExtension(cdecl: "swift_entry_point", types: [SpinningCube.self])
+
+#else
 
 func setupScene(level: GDExtension.InitializationLevel) {
 	if level == .scene {
@@ -30,3 +34,5 @@ public func swift_entry_point(
 	initializeSwiftModule(interfacePtr, libraryPtr, extensionPtr, initHook: setupScene, deInitHook: { x in })
 	return 1
 }
+
+#endif

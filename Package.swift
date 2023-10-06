@@ -3,6 +3,12 @@
 
 import PackageDescription
 
+var dependencies: [Target.Dependency] = []
+dependencies.append("SwiftGodot")
+#if os(macOS)
+dependencies.append(.product(name: "SwiftGodotMacros", package: "SwiftGodot"))
+#endif
+
 let package = Package(
     name: "SwiftGodotCrossBuild",
     platforms: [
@@ -21,7 +27,7 @@ let package = Package(
     targets: [
         .target(
             name: "SwiftGodotCrossBuild",
-            dependencies: ["SwiftGodot", .product (name: "SwiftGodotMacros", package: "SwiftGodot")],
+            dependencies: dependencies,
             swiftSettings: [.unsafeFlags(["-suppress-warnings"])],
             linkerSettings: [.unsafeFlags(
                 ["-Xlinker", "-undefined",
