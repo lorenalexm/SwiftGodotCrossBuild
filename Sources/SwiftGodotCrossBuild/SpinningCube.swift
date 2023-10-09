@@ -6,7 +6,6 @@
 //
 
 import SwiftGodot
-import SwiftGodotMacros
 
 @Godot
 class SpinningCube: Node3D {
