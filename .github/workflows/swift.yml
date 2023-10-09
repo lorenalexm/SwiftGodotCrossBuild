@@ -11,7 +11,7 @@ jobs:
       - name: Get Swift version
         run: swift --version
       - name: Run Swift build
-        run: swift build
+        run: swift package clean && swift build
 
   windows:
     name: Windows
