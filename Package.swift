@@ -2,11 +2,21 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+import CompilerPluginSupport
+
+var linkerSettings: [LinkerSetting] = []
+#if os(macOS)
+linkerSettings.append(
+	.unsafeFlags([
+		"-Xlinker", "-undefined",
+		"-Xlinker", "dynamic_lookup"	
+	])
+)
+#endif
 
 let package = Package(
     name: "SwiftGodotCrossBuild",
     platforms: [
-        .iOS(.v16),
         .macOS(.v13)
     ],
     products: [
@@ -23,10 +33,7 @@ let package = Package(
             name: "SwiftGodotCrossBuild",
             dependencies: ["SwiftGodot"],
             swiftSettings: [.unsafeFlags(["-suppress-warnings"])],
-            linkerSettings: [.unsafeFlags(
-                ["-Xlinker", "-undefined",
-                 "-Xlinker", "dynamic_lookup"]
-            )]
+            linkerSettings: linkerSettings
         )
     ]
 )
