@@ -3,16 +3,6 @@
 
 import PackageDescription
 
-var linkerSettings: [LinkerSetting] = []
-#if os(macOS)
-linkerSettings.append(
-	.unsafeFlags([
-		"-Xlinker", "-undefined",
-		"-Xlinker", "dynamic_lookup"	
-	])
-)
-#endif
-
 let package = Package(
     name: "SwiftGodotCrossBuild",
     platforms: [
@@ -31,8 +21,7 @@ let package = Package(
         .target(
             name: "SwiftGodotCrossBuild",
             dependencies: ["SwiftGodot"],
-            swiftSettings: [.unsafeFlags(["-suppress-warnings"])],
-            linkerSettings: linkerSettings
+            swiftSettings: [.unsafeFlags(["-suppress-warnings"])]
         )
     ]
 )
