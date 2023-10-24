@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: swift-actions/setup-swift@v1
-        with:
-          swift-version: "5.9.1"
       - uses: actions/checkout@v4
       - name: Get Swift version
         run: swift --version
