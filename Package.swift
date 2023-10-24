@@ -15,7 +15,7 @@ let package = Package(
             targets: ["SwiftGodotCrossBuild"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/migueldeicaza/SwiftGodot", branch: "main"),
+        .package(url: "https://github.com/lorenalexm/SwiftGodot", branch: "windows-macros"),
     ],
     targets: [
         .target(

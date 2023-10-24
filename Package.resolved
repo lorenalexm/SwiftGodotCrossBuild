@@ -12,10 +12,10 @@
     {
       "identity" : "swiftgodot",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/migueldeicaza/SwiftGodot",
+      "location" : "https://github.com/lorenalexm/SwiftGodot",
       "state" : {
-        "branch" : "main",
-        "revision" : "502114add89062d880144ae4a3cf247b29fea4a4"
+        "branch" : "windows-macros",
+        "revision" : "8fe6341a6f9e7301687949f345f938c47b2a310e"
       }
     },
     {
