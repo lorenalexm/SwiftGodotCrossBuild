@@ -12,6 +12,11 @@ jobs:
         run: swift --version
       - name: Run Swift build
         run: swift package clean && swift build
+      - name: Gather artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-build
+          path: .build/**/*.so
 
   windows:
     name: Windows
@@ -26,3 +31,8 @@ jobs:
         run: swift --version
       - name: Run Swift build
         run: swift package clean && swift build
+      - name: Gather artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: windows-build
+          path: .build/**/*.dll
